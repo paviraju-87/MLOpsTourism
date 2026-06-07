@@ -32,9 +32,12 @@ pitch_satisfaction_score = st.slider("Pitch Satisfaction Score (1-5)", 1, 5, 3)
 number_of_followups = st.slider("NumberOfFollowups", 0, 10, 3)
 passport = st.selectbox("Passport", [0, 1], format_func=lambda x: 'Yes' if x==1 else 'No')
 own_car = st.selectbox("Own Car", [0, 1], format_func=lambda x: 'Yes' if x==1 else 'No')
+designation = st.selectbox("Designation", ["Manager", "Executive", "Senior Manager", "AVP", "VP", "Other"])
+monthly_income = st.slider("Monthly Income", 0, 100000, 25000)
 
 # Convert categorical inputs to match model training
 input_data = pd.DataFrame([{
+        'Unnamed: 0': 0,
         'Age': age,
         'TypeofContact': type_of_contact,
         'CityTier': city_tier,
@@ -51,6 +54,8 @@ input_data = pd.DataFrame([{
         'PitchSatisfactionScore': pitch_satisfaction_score,
         'OwnCar': own_car,
         'NumberOfChildrenVisiting': number_of_children_visiting,
+        'Designation': designation,
+        'MonthlyIncome': monthly_income
     }])
 
 # Predict button
