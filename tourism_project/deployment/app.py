@@ -61,7 +61,7 @@ input_data = pd.DataFrame([{
 # Predict button
 if st.button("Predict"):
     prediction= model.predict(input_data)[0]
-    if prediction[0] == 1:
+    if prediction == 1:
             st.success(f"Prediction: This customer is LIKELY to purchase the package")
     else:
             st.info(f"Prediction: This customer is UNLIKELY to purchase the package")
