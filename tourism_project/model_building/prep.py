@@ -50,6 +50,9 @@ print(tourismDataSet['Gender'].unique())
 tourismDataSet['MaritalStatus'] = tourismDataSet['MaritalStatus'].replace("Unmarried", "Single")
 print(tourismDataSet['MaritalStatus'].unique())
 
+# Drop the unique column 
+tourismDataSet = tourismDataSet.drop(columns=['CustomerID'], errors='ignore')
+
 # Define the target variable for the classification task
 target = 'ProdTaken'
 
